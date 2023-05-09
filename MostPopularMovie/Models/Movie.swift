@@ -7,17 +7,18 @@
 
 import Foundation
 
-
-struct SearchMovie: Decodable {
-    let items: [Movie]
-}
-
 struct Movie: Decodable {
     let title: String
     let year: String
     let image: URL
-    let imDbRating: String?
+    let imDbRating: String
 }
+
+struct MostPopularMovie: Decodable {
+    let items: [Movie]
+}
+
+
 
 
 
