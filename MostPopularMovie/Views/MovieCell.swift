@@ -20,7 +20,7 @@ final class MovieCell: UITableViewCell {
     func configure(with movie: Movie) {
         movieTitle.text = movie.title
         movieYearLabel.text = "year: \(movie.year)"
-        movieRating.text = "imDbRating: \(movie.imDbRating))"
+        movieRating.text = "imDbRating: \(movie.imDbRating)"
         
         networkService.fetchImage(from: movie.image) { [weak self] result in
             switch result {
