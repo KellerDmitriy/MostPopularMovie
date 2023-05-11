@@ -27,7 +27,7 @@ class InfoMovieViewController: UIViewController {
     // MARK: - Private Methods
     private func showSpinner(in view: UIView) {
         spinnerView = UIActivityIndicatorView(style: .large)
-        spinnerView.color = .white
+        spinnerView.color = .gray
         spinnerView.startAnimating()
         spinnerView.center = movieImageView.center
         spinnerView.hidesWhenStopped = true
