@@ -14,6 +14,7 @@ final class MovieCell: UITableViewCell {
     @IBOutlet weak var movieYearLabel: UILabel!
     @IBOutlet weak var movieRating: UILabel!
     
+    @IBOutlet weak var crewLabel: UILabel!
     
     private let networkService = NetworkManager.shared
     
@@ -21,6 +22,7 @@ final class MovieCell: UITableViewCell {
         movieTitle.text = movie.title
         movieYearLabel.text = "year: \(movie.year)"
         movieRating.text = "imDbRating: \(movie.imDbRating)"
+        crewLabel.text = "by: \(movie.director)"
         
         networkService.fetchImage(from: movie.image) { [weak self] result in
             switch result {

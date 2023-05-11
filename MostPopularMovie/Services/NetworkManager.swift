@@ -8,16 +8,16 @@
 import Foundation
 
 enum NetworkError: Error {
+    case invalidURL
     case noData
     case decodingError
+    
 }
 
 final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
-    
-    let urlString = "https://imdb-api.com/en/API/MostPopularMovies/k_88im04e6"
     
     func fetchImage(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
         DispatchQueue.global().async {
@@ -31,8 +31,11 @@ final class NetworkManager {
         }
     }
     
-    func fetchMovies(from urlString: String, completion: @escaping(Result<MostPopularMovie, NetworkError>) -> Void ) {
-        guard let url = URL(string: urlString) else { return }
+    func fetchMovies(from url: URL?, completion: @escaping(Result<MostPopularMovie, NetworkError>) -> Void ) {
+        guard let url = url else {
+            completion( .failure(.invalidURL))
+            return
+        }
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 print(error?.localizedDescription ?? "No error description")

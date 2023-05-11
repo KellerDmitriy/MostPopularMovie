@@ -16,6 +16,7 @@
 		E14C4D792A077D7800BDC222 /* MostPopularMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C4D782A077D7800BDC222 /* MostPopularMovieViewController.swift */; };
 		E14C4D7C2A08031500BDC222 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C4D7B2A08031500BDC222 /* NetworkManager.swift */; };
 		E14C4DAE2A0A804000BDC222 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C4DAD2A0A804000BDC222 /* MovieCell.swift */; };
+		E14C4DB02A0D862200BDC222 /* InfoMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C4DAF2A0D862200BDC222 /* InfoMovieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E14C4D782A077D7800BDC222 /* MostPopularMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularMovieViewController.swift; sourceTree = "<group>"; };
 		E14C4D7B2A08031500BDC222 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E14C4DAD2A0A804000BDC222 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		E14C4DAF2A0D862200BDC222 /* InfoMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMovieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E14C4D782A077D7800BDC222 /* MostPopularMovieViewController.swift */,
+				E14C4DAF2A0D862200BDC222 /* InfoMovieViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				E14C4D7C2A08031500BDC222 /* NetworkManager.swift in Sources */,
 				E14C4D602A05A38200BDC222 /* AppDelegate.swift in Sources */,
+				E14C4DB02A0D862200BDC222 /* InfoMovieViewController.swift in Sources */,
 				E14C4DAE2A0A804000BDC222 /* MovieCell.swift in Sources */,
 				E14C4D772A05A40E00BDC222 /* Movie.swift in Sources */,
 				E14C4D792A077D7800BDC222 /* MostPopularMovieViewController.swift in Sources */,
