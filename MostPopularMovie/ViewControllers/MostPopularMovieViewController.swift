@@ -31,6 +31,7 @@ class MostPopularMovieViewController: UITableViewController{
         super.viewDidLoad()
         fetchMovie(from: PopulaMovieAPI.baseURL.url)
         setupSearchController()
+        tableView.rowHeight = 100
     }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,7 +108,6 @@ extension MostPopularMovieViewController: UISearchResultsUpdating {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-
         filteredMovies = popularMovies?.items.filter { movie in
              movie.title.lowercased().contains(searchText.lowercased())
         } ?? []
