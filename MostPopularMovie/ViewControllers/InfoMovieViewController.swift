@@ -7,8 +7,9 @@
 
 import UIKit
 
-class InfoMovieViewController: UIViewController {
+final class InfoMovieViewController: UIViewController {
     
+    @IBOutlet weak var titleMovie: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -17,12 +18,14 @@ class InfoMovieViewController: UIViewController {
     private let networkManager = NetworkManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
-        title = movie.title
+        
+        titleMovie.text = movie.title
         descriptionLabel.text = movie.description
-        showSpinner(in: movieImageView)
         fetchImage()
+        
+     
+        showSpinner(in: movieImageView)
+        
     }
     // MARK: - Private Methods
     private func showSpinner(in view: UIView) {
@@ -33,6 +36,7 @@ class InfoMovieViewController: UIViewController {
         spinnerView.hidesWhenStopped = true
         view.addSubview(spinnerView)
     }
+    
     
     private func fetchImage() {
         networkManager.fetchImage(from: movie.image) { result in

@@ -10,13 +10,6 @@ import UIKit
 final class MovieCell: UITableViewCell {
     
     @IBOutlet weak var movieImage: UIImageView!
-//    {
-//        didSet {
-//           movieImage.contentMode = .scaleAspectFit
-//            movieImage.clipsToBounds = true
-//            movieImage.layer.cornerRadius = movieImage.frame.height / 2
-//        }
-//    }
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieYearLabel: UILabel!
     @IBOutlet weak var movieRating: UILabel!

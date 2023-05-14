@@ -6,51 +6,38 @@
 //
 
 import Foundation
+import Alamofire
 
-enum NetworkError: Error {
-    case invalidURL
-    case noData
-    case decodingError
-    
-}
 
 final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
-    func fetchImage(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
-                completion( .failure(.noData))
-                return
-            }
-            DispatchQueue.main.async {
-                completion( .success(imageData))
-            }
-        }
-    }
-    
-    func fetchMovies(from url: URL?, completion: @escaping(Result<MostPopularMovie, NetworkError>) -> Void ) {
-        guard let url = url else {
-            completion( .failure(.invalidURL))
-            return
-        }
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "No error description")
-                completion(.failure(.noData))
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                let mostPopularMovie = try decoder.decode(MostPopularMovie.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(mostPopularMovie))  
+    func fetchImage(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let dataImage):
+                    completion(.success(dataImage))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(.decodingError))
             }
-        } .resume()
+        }
+    
+    func fetchMovies(from url: String, completion: @escaping(Result<[Movie], AFError>) -> Void ) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let movies = Movie.getMovies(from: value)
+                    completion(.success(movies))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
     }
 }
