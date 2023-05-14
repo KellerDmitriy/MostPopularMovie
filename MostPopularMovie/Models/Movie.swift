@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MostPopularMovie: Decodable {
+struct MostPopularMovie {
     let items: [Movie]
 }
 
@@ -22,7 +22,7 @@ struct Movie: Decodable {
         title = movieData["title"] as? String ?? ""
         year = movieData["year"] as? String ?? ""
         image = movieData["image"] as? String ?? ""
-        imDbRating = movieData["imDbRating"] as? String ?? ""
+        imDbRating = movieData["imDbRating"] as? String ?? "no rating"
         crew = movieData["crew"] as? String ?? ""
     }
     
@@ -34,6 +34,12 @@ struct Movie: Decodable {
     """
     }
     
+    static func getMovies(from value: Any) -> [Movie] {
+        guard let items = value as? [String: Any] else { return []}
+        guard let movieData = items["items"] as? [[String: Any]] else { return [] }
+        return movieData.map { Movie(from: $0) }
+    }
+    
     var director: String {
         let crewArray = crew.components(separatedBy: ",")
         guard let firstDirector = crewArray.first(where: { $0.hasPrefix("(dir.)") }) ?? crewArray.first else {
@@ -42,23 +48,8 @@ struct Movie: Decodable {
         return firstDirector
     }
     
-    static func getMovies(from value: Any) -> [Movie] {
-        guard let data = value as? [String: Any] else { return []}
-        guard let movieData = data["data"] as? [[String: Any]] else { return [] }
-        return movieData.map { Movie(from: $0) }
-    }
+  
 }
 
-
-enum MostPopularMovieAPI {
-    case baseURL
-    
-    var url: String {
-        switch self {
-        case .baseURL:
-            return "https://imdb-api.com/en/API/MostPopularMovies/k_88im04e6"
-        }
-    }
-}
 
 

@@ -29,7 +29,7 @@ final class MostPopularMovieViewController: UITableViewController{
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchMovie(from: MostPopularMovieAPI.baseURL.url)
+        fetchMovie()
         setupSearchController()
         tableView.rowHeight = 100
     }
@@ -68,11 +68,13 @@ final class MostPopularMovieViewController: UITableViewController{
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
-    private func fetchMovie(from url: String) {
+    
+    private func fetchMovie() {
+        guard let url = URL(string: "https://imdb-api.com/en/API/MostPopularMovies/k_88im04e6") else { return }
         networkManager.fetchMovies(from: url) { [weak self] result in
             switch result {
-            case .success(let mostPopularMovie):
-                self?.popularMovies = mostPopularMovie
+            case .success(let popularMovies):
+                self?.popularMovies = popularMovies
                 self?.tableView.reloadData()
             case .failure(let error):
                 print("error:", error)

@@ -112,17 +112,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="PMX-zF-crz">
-                                <rect key="frame" x="63" y="381.5" width="194" height="146.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PMX-zF-crz">
+                                <rect key="frame" x="63" y="381.5" width="194" height="53"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleMovie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gDH-Nl-rWX">
-                                        <rect key="frame" x="0.0" y="0.0" width="194" height="124"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="194" height="26.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Description Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6xc-jy-xnd">
-                                        <rect key="frame" x="0.0" y="126" width="194" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="194" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -150,7 +150,6 @@
                             <constraint firstItem="mXU-K0-nab" firstAttribute="trailing" secondItem="sAF-LB-qdp" secondAttribute="trailing" constant="63" id="mUt-fU-gmB"/>
                             <constraint firstItem="PMX-zF-crz" firstAttribute="top" secondItem="sAF-LB-qdp" secondAttribute="bottom" constant="1" id="moH-rG-1Fg"/>
                             <constraint firstItem="sAF-LB-qdp" firstAttribute="leading" secondItem="mXU-K0-nab" secondAttribute="leading" constant="63" id="oEL-zE-1Vb"/>
-                            <constraint firstItem="mXU-K0-nab" firstAttribute="bottom" secondItem="PMX-zF-crz" secondAttribute="bottom" constant="40" id="xmW-b8-nrN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="hhI-E3-MYK"/>

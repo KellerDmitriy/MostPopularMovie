@@ -23,7 +23,6 @@ final class InfoMovieViewController: UIViewController {
         descriptionLabel.text = movie.description
         fetchImage()
         
-     
         showSpinner(in: movieImageView)
         
     }
